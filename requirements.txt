@@ -1,0 +1,11 @@
+transformers==4.43.3
+ml_collections
+fschat
+iopath
+termcolor
+protobuf
+sentencepiece
+accelerate
+pandas
+spacy
+openai==1.9.0
