@@ -18,7 +18,7 @@ Run the following command at the root of this repository to install the essentia
 pip install -e .
 python -m spacy download en_core_web_sm
 ```
-Note that we have chosen a different `transformers` version from the default `GCG` implementation, which could introduce subtle difference in Llama-2 model conversation template setting. To faithfully reproduce all the results reported in the paper, e.g. both [`DSN`](https://arxiv.org/abs/2404.16369) and [`GCG`](https://arxiv.org/abs/2307.15043) attack results upon Llama-2 model, try install the `transformers` package with version 4.28.1 and `fschat` package with version 0.2.20
+Note that we have chosen a different `transformers` version from the default `GCG` implementation, which might introduce subtle difference in Llama-2 model conversation prompt formatting. To faithfully reproduce all the results reported in the paper, e.g. both [`DSN`](https://arxiv.org/abs/2404.16369) and [`GCG`](https://arxiv.org/abs/2307.15043) attack results upon Llama-2 model, try install the `transformers` package with version 4.28.1 and `fschat` package with version 0.2.20
 
 ## To reproduce
 
