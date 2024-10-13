@@ -1,10 +1,10 @@
-# DSN jailbreak Attack & Evaluation Ensemble
+# DSN Jailbreak Attack & Evaluation Ensemble
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This is the official repository for [`Don't Say No: Jailbreaking LLM by Suppressing Refusal`](https://arxiv.org/abs/2404.16369)
 
-In this work, we propose one novel jailbreak optmization target, introducing the refusal loss, cosine decay weighting schedule method, applying the Unlikelihood loss to ensure convergence, and novelly incorporate a NLI based method into our proposed jailbreak ensemble evaluation pipeline.
+In this work, we propose one novel jailbreak optmization target, introducing the refusal loss, cosine decay weighting schedule method, applying the Unlikelihood loss to ensure convergence, and novelly incorporate a NLI based method into our proposed jailbreak Evaluation Ensemble pipeline.
 
 <p align="center">
   <img src="main.png" width="70%">
