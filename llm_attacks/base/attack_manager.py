@@ -30,7 +30,7 @@ from tqdm import tqdm
 
 # accommodate for the older transformers version 4.28.1
 try:
-    from transformers import MistralForCausalLM, Qwen2ForCausalLM, Gemma2ForCausalLM
+    from transformers import MistralForCausalLM, Qwen2ForCausalLM, Gemma2ForCausalLM, GemmaForCausalLM
 except:
     pass
 
@@ -134,19 +134,19 @@ class NpEncoder(json.JSONEncoder):
 # ------------------------------------------------------------------------------------------------ #
 
 def get_embedding_layer(model):
-    if isinstance(model, LlamaForCausalLM) or isinstance(model, Qwen2ForCausalLM) or isinstance(model, MistralForCausalLM) or isinstance(model, Gemma2ForCausalLM):
+    if isinstance(model, LlamaForCausalLM) or isinstance(model, Qwen2ForCausalLM) or isinstance(model, MistralForCausalLM) or isinstance(model, Gemma2ForCausalLM) or isinstance(model, GemmaForCausalLM):
         return model.model.embed_tokens
     else:
         raise ValueError(f"Unknown model type: {type(model)}")
 
 def get_embedding_matrix(model):
-    if isinstance(model, LlamaForCausalLM) or isinstance(model, Qwen2ForCausalLM) or isinstance(model, MistralForCausalLM) or isinstance(model, Gemma2ForCausalLM):
+    if isinstance(model, LlamaForCausalLM) or isinstance(model, Qwen2ForCausalLM) or isinstance(model, MistralForCausalLM) or isinstance(model, Gemma2ForCausalLM) or isinstance(model, GemmaForCausalLM):
         return model.model.embed_tokens.weight
     else:
         raise ValueError(f"Unknown model type: {type(model)}")
 
 def get_embeddings(model, input_ids):
-    if isinstance(model, LlamaForCausalLM) or isinstance(model, Qwen2ForCausalLM) or isinstance(model, MistralForCausalLM) or isinstance(model, Gemma2ForCausalLM):
+    if isinstance(model, LlamaForCausalLM) or isinstance(model, Qwen2ForCausalLM) or isinstance(model, MistralForCausalLM) or isinstance(model, Gemma2ForCausalLM) or isinstance(model, GemmaForCausalLM):
         return model.model.embed_tokens(input_ids)
     else:
         raise ValueError(f"Unknown model type: {type(model)}")
@@ -430,7 +430,7 @@ class AttackPrompt(object):
                 # to examine the slice correctness as you wish
                 pass
 
-        elif "gemma-2" in self.para.model_paths[0]:             # covering gemma-2-9b-it model
+        elif "gemma-2" in self.para.model_paths[0]:             # covering gemma series
             self._user_role_slice = slice( None, 4 )
             # till the end of system prompt, leading to the begining of the goal
             # For gemma, there's no default system prompt, such that no need to adptaively determine the user_role_slice

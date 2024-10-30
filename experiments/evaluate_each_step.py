@@ -71,7 +71,8 @@ _test_prefixes = [
 
 # Select the target model for evaluating the jailbreak prompt suffix
 _MODELS = {
-    "gemma-2-9b-it": ['google/gemma-2-9b-it', {"use_fast": False}, "gemma"],
+    "gemma-2b-it": ['google/gemma-2b-it', {"use_fast": False}, "gemma"],
+    # "gemma-2-9b-it": ['google/gemma-2-9b-it', {"use_fast": False}, "gemma"],
     # "Llama-2-13b-chat-hf": ['meta-llama/Llama-2-13b-chat-hf', {"use_fast": False}, "llama-2"],
     # "LLaMA-2-7B": ["meta-llama/Llama-2-7b-chat-hf", {"use_fast": False}, "llama-2"],
     # "LLaMA-3-8B": ["meta-llama/Meta-Llama-3-8B-Instruct", {"use_fast": False}, "llama-3"],
@@ -172,10 +173,10 @@ def main(_):
             test_jb_overview[f"{i}-index evaluated suffix"] = int(np.array(temp_test_total_jb).sum())
 
         current_time = time.strftime("%Y%m%d-%H:%M:%S")
-        results['train_jb_overview'] = train_jb_overview
-        results['test_jb_overview'] = test_jb_overview
         results['Tested suffix'] = controls
         results[model] = {
+            'train_jb_overview':train_jb_overview,
+            'test_jb_overview':test_jb_overview,
             "jb": total_jb,
             "em": total_em,
             "test_jb": test_total_jb,

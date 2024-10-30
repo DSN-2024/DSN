@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export n=25
-export model=llama2 # choose from: gemma2, llama2, llama2_13b, llama3, llama31, mistralv02, mistralv03, qwen, vicuna_13b, vicuna
+export model=llama2 # choose from: gemma, gemma2, llama2, llama2_13b, llama3, llama31, mistralv02, mistralv03, qwen, vicuna_13b, vicuna
 
 # sample file paht
 file_list=(
