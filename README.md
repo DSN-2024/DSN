@@ -18,7 +18,7 @@ Run the following command at the root of this repository to install the essentia
 pip install -e .
 python -m spacy download en_core_web_sm
 ```
-Note that we have chosen a different `transformers` version from the default `GCG` implementation, which might introduce subtle difference in Llama-2 model conversation prompt formatting. To faithfully reproduce all the results reported in the paper, e.g. both [`DSN`](https://arxiv.org/abs/2404.16369) and [`GCG`](https://arxiv.org/abs/2307.15043) attack results upon Llama-2 model, try install the `transformers` package with version 4.28.1 and `fschat` package with version 0.2.20
+Note that we have chosen a different `transformers` version from the default `GCG` implementation, which might introduce subtle difference in Llama-2 model conversation prompt formatting. To faithfully reproduce all the results reported in the paper, e.g. both [`DSN`](https://arxiv.org/abs/2404.16369) and [`GCG`](https://arxiv.org/abs/2307.15043) attack results upon Llama-2 model, try install the `transformers` package with version 4.28.1 and `fschat` package with version 0.2.20. Both version of conda environmnets are supported by our implementation.
 
 ## To reproduce
 
@@ -29,6 +29,10 @@ The attack launch file is located as `experiments/launch_scripts/run_dsn_attack.
 The recommend hyper-parameter setting is already detailed in the script. For rigorous evaluation, please consider running the same setting for multiple times.
 
 To evaluate, please first run the scripts in eval_scripts folder, e.g. `experiments/eval_scripts/lastStep_eval.sh`, to conduct evaluation under the Refusal Matching metric. Then, change directory to eval_ensemble_src to launch `eval_ensemble_src/launch_majority_eval.sh`
+
+## Updates
+
+- 2024.11.6:  Refine the _update_ids function, to support llama-2 conv_template within different `transformers` and `fschat` version. For more details please refer to Section B.1.1 of our paper
 
 ## Citation
 If you find our implementation and paper useful, please consider citing our work:
