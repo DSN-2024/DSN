@@ -4,11 +4,17 @@
 
 This is the official repository for [`Don't Say No: Jailbreaking LLM by Suppressing Refusal`](https://arxiv.org/abs/2404.16369)
 
-In this work, we propose one novel jailbreak optmization target, introducing the refusal loss, cosine decay weighting schedule method, applying the Unlikelihood loss to ensure convergence, and novelly incorporate a NLI based method into our proposed jailbreak Evaluation Ensemble pipeline.
+In this work, we primarily identify and address one crucial issue within the learning-based jailbreak attack: `Loss-ASR Mismatch` problem.
+We propose one novel and performance consistent jailbreak optmization target, introducing the refusal loss, cosine decay weighting schedule method, and novelly incorporate a NLI based method into our proposed jailbreak Evaluation Ensemble pipeline.
 
 <p align="center">
-  <img src="main.png" width="70%">
+  <img src="main_acl_version.png" width="70%">
 </p>
+
+## Updates
+- 2025.5.16:  Our paper has been accepted by ACL 2025 Findings. See you in Vienna!
+- 2024.11.7:  Our attack has been archived by [JailbreakBench Artifacts](https://github.com/JailbreakBench/artifacts/tree/main/attack-artifacts/DSN) and obtained the 1-st rank within the white-box model attack. Congratulation!
+- 2024.11.6:  Refine the _update_ids function, to support llama-2 conv_template within different `transformers` and `fschat` version. For more details please refer to Section B.1.1 of our paper
 
 ## Installation
 
@@ -29,10 +35,6 @@ The attack launch file is located as `experiments/launch_scripts/run_dsn_attack.
 The recommend hyper-parameter setting is already detailed in the script. For rigorous evaluation, please consider running the same setting for multiple times.
 
 To evaluate, please first run the scripts in eval_scripts folder, e.g. `experiments/eval_scripts/lastStep_eval.sh`, to conduct evaluation under the Refusal Matching metric. Then, change directory to eval_ensemble_src to launch `eval_ensemble_src/launch_majority_eval.sh`
-
-## Updates
-
-- 2024.11.6:  Refine the _update_ids function, to support llama-2 conv_template within different `transformers` and `fschat` version. For more details please refer to Section B.1.1 of our paper
 
 ## Citation
 If you find our implementation and paper useful, please consider citing our work:
