@@ -12,6 +12,7 @@ We propose one novel and performance consistent jailbreak optmization target, in
 </p>
 
 ## Updates
+- 2025.8.29: We have uploaded a [Chinese XHS post](https://github.com/JailbreakBench/artifacts/tree/main/attack-artifacts/DSN) about this work. Welcome to Like, Share, and Comments!
 - 2025.5.16: 🎉 Our paper has been accepted by ACL 2025 Findings. See you in Vienna!
 - 2024.11.7: 🎉 Our attack has been archived by [JailbreakBench Artifacts](https://github.com/JailbreakBench/artifacts/tree/main/attack-artifacts/DSN) and obtained the 1-st rank within the white-box model attack. Congratulations!
 - 2024.11.6:  Refine the _update_ids function, to support llama-2 conv_template within different `transformers` and `fschat` version. For more details please refer to Section B.1.1 of our paper
