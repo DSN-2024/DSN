@@ -219,7 +219,7 @@ class AttackPrompt(object):
         self.test_prefixes_toks = []
 
         for test_str in self.test_prefixes:
-            ids = tokenizer.encode(test_str)[1:]
+            ids = tokenizer.encode(test_str, add_special_tokens=False)
             self.test_prefixes_toks.append(ids)
             self.test_token_length.append(len(ids))
 
@@ -227,7 +227,7 @@ class AttackPrompt(object):
 
         self.test_new_toks = len(self.tokenizer(self.target).input_ids) + 2 # buffer
         for prefix in self.test_prefixes:
-            self.test_new_toks = max(self.test_new_toks, len(self.tokenizer.encode(prefix)))
+            self.test_new_toks = max(self.test_new_toks, len(self.tokenizer.encode(prefix, add_special_tokens=False)))
 
         self._update_ids()
 
@@ -1181,13 +1181,20 @@ class MultiPromptAttack(object):
                 decoded_str = worker.tokenizer.decode(control_cand[i], skip_special_tokens=True).strip()
 
             if filter_cand:
-                tokenizer_offset = -1
-                if "Qwen2-7B-Instruct" in self.para.model_paths[0]:
-                    tokenizer_offset = 0
+                """
+                By inspecting the following four DSN-introduced boolean check,
+                our codebase (2024 version) could implement tokenizer-consistency filtering mechanism.
+                This ensure both round-trip validity and full-conversation reachability,
+                preventing cross-boundary token merges, which has been later formalized in the
+                AdversariaLLM work (2025, https://arxiv.org/abs/2511.04316)
+                """
+
                 bool_1 = decoded_str != curr_control
                 bool_2 = len(worker.tokenizer(decoded_str, add_special_tokens=False).input_ids) == len(control_cand[i])
-                bool_3 = len(control_cand[i]) == len(worker.tokenizer.encode(curr_control)) + tokenizer_offset
 
+                # to use the add_special_tokens argument, instead of hard code, to avoid undesirable consequences in some certain LLMs
+                bool_3 = len(control_cand[i]) == len(worker.tokenizer.encode(curr_control, add_special_tokens=False))
+                
                 prior_string = worker.tokenizer.decode(self.prompts[0][0].input_ids.tolist()[:self.prompts[0][0]._control_slice.start])
                 bool_4 = (len(worker.tokenizer.encode(prior_string+" "+decoded_str)) - len(worker.tokenizer.encode(prior_string))) == len(control_cand[i])
 
