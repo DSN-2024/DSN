@@ -12,6 +12,7 @@ We propose one novel and performance consistent jailbreak optmization target, in
 </p>
 
 ## Updates
+- 2025.11.11: Add documentation about DSN’s tokenizer-consistency filter. Please refer to the paper of [*AdversariaLLM* (Beyer et al., 2025)](https://arxiv.org/abs/2511.04316) or [DSN Issue #2](https://github.com/DSN-2024/DSN/issues/2) for more details and context.
 - 2025.8.29: We have uploaded a [Chinese XHS post](http://xhslink.com/o/8D6DKa3QTmA) about this work. Welcome to Like, Share, and Comments!
 - 2025.5.16: 🎉 Our paper has been accepted by ACL 2025 Findings. See you in Vienna!
 - 2024.11.7: 🎉 Our attack has been archived by [JailbreakBench Artifacts](https://github.com/JailbreakBench/artifacts/tree/main/attack-artifacts/DSN) and obtained the 1-st rank within the white-box model attack. Congratulations!
