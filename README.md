@@ -53,40 +53,6 @@ If you find our implementation and paper useful, please consider citing our work
 }
 ```
 
-In addition, please also consider citing the following works, which have been utilized in this paper
-
-```bibtex
-@misc{zou2023universal,
-  title={Universal and Transferable Adversarial Attacks on Aligned Language Models},
-  author={Andy Zou and Zifan Wang and J. Zico Kolter and Matt Fredrikson},
-  year={2023},
-  eprint={2307.15043},
-  archivePrefix={arXiv},
-  primaryClass={cs.CL}
-}
-
-@article{mazeika2024harmbench,
-  title={HarmBench: A Standardized Evaluation Framework for Automated Red Teaming and Robust Refusal},
-  author={Mazeika, Mantas and Phan, Long and Yin, Xuwang and Zou, Andy and Wang, Zifan and Mu, Norman and Sakhaee, Elham and Li, Nathaniel and Basart, Steven and Li, Bo and Forsyth, David and Hendrycks, Dan},
-  journal={arXiv preprint arXiv:2402.04249},
-  year={2024}
-}
-
-@inproceedings{chao2024jailbreakbench,
-  title={JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models},
-  author={Patrick Chao and Edoardo Debenedetti and Alexander Robey and Maksym Andriushchenko and Francesco Croce and Vikash Sehwag and Edgar Dobriban and Nicolas Flammarion and George J. Pappas and Florian Tramèr and Hamed Hassani and Eric Wong},
-  booktitle={NeurIPS Datasets and Benchmarks Track},
-  year={2024}
-}
-
-@article{huang2023catastrophic,
-  title={Catastrophic Jailbreak of Open-source LLMs via Exploiting Generation},
-  author={Huang, Yangsibo and Gupta, Samyak and Xia, Mengzhou and Li, Kai and Chen, Danqi},
-  journal={arXiv preprint arXiv:2310.06987},
-  year={2023}
-}
-```
-
 ## Acknowledgment
 `DSN` attack implementation is built upon modifying the `GCG` implementaion from [GCG github repo](https://github.com/llm-attacks/llm-attacks)
 
